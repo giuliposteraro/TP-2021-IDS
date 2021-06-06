@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       agent any
       steps {
-        sh './gradle build'
+        sh './gradlew build'
       }
     }
 
