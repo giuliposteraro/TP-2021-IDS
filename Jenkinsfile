@@ -2,10 +2,10 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      agent any
       steps {
         withGradle() {
-          sh '''git pull 
-./gradle build'''
+          sh './gradlew build'
         }
 
       }
