@@ -4,7 +4,8 @@ pipeline {
     stage('Prueba') {
       agent any
       steps {
-        sh './gradlew build'
+        sh '''ls -a
+./gradlew build --scan -s'''
       }
     }
 
