@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         withGradle() {
-          sh 'sh \'./gradlew build\''
+          sh './gradlew build'
         }
 
       }
@@ -12,19 +12,19 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'sh \'./gradlew clean test --info\''
+        sh './gradlew clean test --info'
       }
     }
 
     stage('Validate') {
       steps {
-        sh 'sh \'gradle/wrapper-validation-action@v1\''
+        sh 'gradle/wrapper-validation-action@v1'
       }
     }
 
     stage('Deploy') {
       steps {
-        sh 'sh \'ls\''
+        sh 'ls'
       }
     }
 
