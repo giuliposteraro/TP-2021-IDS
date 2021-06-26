@@ -13,7 +13,6 @@ pipeline {
             sh './gradlew clean test --no-daemon'
             junit 'build/test-results/test/*.xml'
         }
->>>>>>> prueba
     }
 
     stage('Analyze') {
