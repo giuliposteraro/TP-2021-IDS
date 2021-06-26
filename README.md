@@ -1,4 +1,4 @@
-JPet Store Sample [![Java CI with Gradle](https://github.com/domaframework/spring-boot-jpetstore/workflows/Java%20CI%20with%20Gradle/badge.svg)](https://github.com/domaframework/spring-boot-jpetstore/actions?query=workflow%3A%22Java+CI+with+Gradle%22)
+JPet Store Sample - TP Ing SW SCM
 ========================================
 
 This sample shows how easy to integrate [Doma][doma] with  [Spring Boot][spring-boot] .
@@ -50,6 +50,11 @@ Generate all Eclipse files with Gradle.
 ```sh
 ./gradlew eclipse
 ```
+
+License
+-------
+
+Apache License, Version 2.0
 
 [doma]: https://github.com/domaframework/doma
 [spring-boot]: https://github.com/spring-projects/spring-boot

@@ -2,44 +2,40 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        sh 'sh \'./gradlew build\''
-      }
+	steps { 
+            git url: 'https://github.com/giuliposteraro/TP-2021-IDS.git'
+            sh './gradlew build'
+            sh './gradlew bootRun'
+        }
     }
-
     stage('Test') {
-      steps {
-        sh 'sh \'./gradlew clean test --info\''
-      }
+        steps {
+            sh './gradlew clean test --no-daemon'
+            junit 'build/test-results/test/*.xml'
+        }
+>>>>>>> prueba
     }
 
     stage('Analyze') {
       parallel {
-        stage('Analyze') {
-          steps {
-            echo '\'Execute Analyze...\''
-          }
-        }
-
         stage('Sonarqube') {
           steps {
-            sh 'sh \'./gradlew sonarqube -Dsonar.host.url=http://sonarqube:9000\''
+            sh './gradlew sonarqube -Dsonar.host.url=http://localhost:9000 -Dsonar.login=c9bc37fc21a9593dcc90bd0eedaa708edb5def3b'
           }
         }
 
         stage('Jacoco') {
           steps {
-            sh 'sh \'./gradlew -i test jacocoTestReport\''
+            sh './gradlew -i test jacocoTestReport'
           }
         }
-
       }
     }
 
     stage('Deploy') {
-      steps {
-        echo '\'Deply...\''
-      }
+            steps {
+                echo ' Ready for deploy'
+            }
     }
 
   }
